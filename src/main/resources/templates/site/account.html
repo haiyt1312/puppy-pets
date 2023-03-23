@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta
+    http-equiv="content-type"
+    content="text/html;charset=utf-8"
+  />
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="author" content="mironcoder" />
+    <meta name="email" content="mironcoder@gmail.com" />
+    <meta name="profile" content="https://themeforest.net/user/mironcoder" />
+    <meta name="name" content="Puppy Pets" />
+    <meta name="title" content="Puppy Pets" />
+    <meta
+      name="keywords"
+      content="Puppy Pets"
+    />
+    <title>Puppy Pets - Tài khoản</title>
+    <link rel="icon" href="images/favicon.png" />
+    <link rel="stylesheet" href="fonts/flaticon/flaticon.css" />
+    <link rel="stylesheet" href="font-awesome/5.14.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/custom/main.css" />
+    <link rel="stylesheet" href="css/custom/account.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header th:replace="~{/fragments/header :: header}"></header>
+    <!-- Nav -->
+    <nav th:replace="~{/fragments/nav :: nav}"></nav>
+
+    <section class="single-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="single-content">
+              <h2>Thông tin tài khoản</h2>
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index-2.html">Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Thông tin tài khoản
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="account-part">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="account-menu">
+              <ul class="nav nav-tabs">
+                <li>
+                  <a href="#pro" class="nav-link active" data-toggle="tab" >Hồ sơ</a>
+                </li>
+                <li>
+                  <a href="#order" class="nav-link" data-toggle="tab" >Đơn đặt hàng</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane active" id="pro">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="section-heading"><h2>Thông tin tài khoản</h2></div>
+            </div>
+            <div class="col-lg-6">
+              <div class="account-card">
+                <div class="account-title">
+                  <h3>Giới thiệu</h3>
+                  <a href="#" >Sửa</a>
+                </div>
+                <div class="profile-intro" style="padding-left: 35%">
+                  <div class="profile-author">
+                    <a href="#"><img src="images/avatar/05.png" alt="01" /></a>
+                    <h4 >[[${customer.fullname}]]</h4>
+                    <p><span >Role:</span>[[${customer.roleId}]]</p>
+                    <p><span >(0: User / 1: Admin)</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="account-card">
+                <div class="account-title">
+                  <h3>Thông tin liên hệ:</h3>
+                  <a href="#" >Sửa</a>
+                </div>
+                <ul class="account-list">
+                  <li>
+                    <h6 >Họ Tên:</h6>
+                    <p >[[${customer.fullname}]]</p>
+                  </li>
+                  <li>
+                    <h6 >Email:</h6>
+                    <p >[[${customer.email}]]</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" id="order">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="section-heading"><h2>Chi tiết đơn hàng</h2></div>
+            </div>
+            <div class="col-lg-12">
+              <div class="order-content">
+                <table class="table-list">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col" >ID đơn hàng</th>
+                      <th scope="col" >Địa chỉ</th>
+                      <th scope="col" >Ngày</th>
+                      <th scope="col" >Tổng tiền</th>
+                      <th scope="col" >Số lượng</th>
+                      <th scope="col" >Trạng thái</th>
+                      <th scope="col" >Tên sản phẩm</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr th:each="item, iState : ${orders2}">
+                      <td class="table-order"><p>[[${iState.index + 1}]]</p></td>
+                      <td class="table-order"><p>[[${item[0]}]]</p></td>
+                      <td class="table-date"><p>[[${item[1]}]]</p></td>
+                      <td class="table-total"><p>[[${item[2]}]]</p></td>
+                      <td class="table-total"><p>[[ ${#numbers.formatDecimal(item[3], 1, 'DEFAULT', 0, 'DEFAULT')}+ '₫']]</p></td>
+                      <td class="table-total"><p>[[${item[6]}]]</p></td>
+                      <td class="table-total"><p>[[${item[4]}]]</p></td>
+                      <td class="table-total"><p>[[${item[5]}]]</p></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="order-btn">
+                <a href="#" class="btn btn-inline"
+                  ><i class="fas fa-eye"></i>xem thêm</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="news-part">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5 col-lg-6">
+            <div class="news-content"><h2>Đăng ký nhận ưu đãi mới nhất</h2></div>
+          </div>
+          <div class="col-md-7 col-lg-6">
+            <form class="search-form news-form">
+              <input type="text" placeholder="Email" /><button
+                class="btn btn-inline"
+              >
+                <i class="fas fa-envelope"></i><span >Đăng ký</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer th:replace="~{/fragments/footer :: footer}"></footer>
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="js/vendor/popper.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/vendor/jquery-ui.js"></script>
+    <script src="js/custom/price-range.js"></script>
+    <script src="js/custom/main.js"></script>
+  </body>
+</html>

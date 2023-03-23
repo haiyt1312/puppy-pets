@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta
+    http-equiv="content-type"
+    content="text/html;charset=utf-8"
+  />
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="author" content="mironcoder" />
+    <meta name="email" content="mironcoder@gmail.com" />
+    <meta name="profile" content="https://themeforest.net/user/mironcoder" />
+    <meta name="name" content="Puppy Pets" />
+    <meta name="title" content="Puppy Pets" />
+    <meta
+      name="keywords"
+      content="Puppy Pets"
+    />
+    <title>Puppy Pets - Liên hệ</title>
+    <link rel="icon" href="images/favicon.png" />
+    <link rel="stylesheet" href="fonts/flaticon/flaticon.css" />
+    <link rel="stylesheet" href="font-awesome/5.14.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/custom/main.css" />
+    <link rel="stylesheet" href="css/custom/contact.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header th:replace="~{/fragments/header :: header}"></header>
+    <!-- Nav -->
+    <nav th:replace="~{/fragments/nav :: nav}"></nav>
+    
+    <section class="single-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="single-content">
+              <h2>Liên hệ với chúng tôi</h2>
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index-2.html">Trang chủ</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Liên hệ
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="contact-part">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="contact-heading">
+              <h1 class="title">Thông tin liên hệ</h1>
+              <p>
+                Hãy liên hệ với chúng tôi để được tư vấn rõ hơn về các sản phẩm có trong cửa hàng.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="contact-info">
+              <i class="fas fa-map-marker-alt"></i>
+              <h2 class="title">Địa chỉ</h2>
+              <p>121A tổ 2 Tân xuân, TT. Xuân Mai <span>Chương Mỹ, Hà Nội</span></p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="contact-info">
+              <i class="fas fa-phone-alt"></i>
+              <h2 class="title">Số điện thoại</h2>
+              <p>0989668899 (gọi miễn phí) <span>0988996688</span></p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="contact-info">
+              <i class="fas fa-envelope"></i>
+              <h2 class="title">Hòm thư</h2>
+              <p>puppy.pets@gmail.com <span>haiyt1312@gmail.com</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <form class="contact-form">
+              <label class="contact-label"
+                ><input type="text" placeholder="Họ tên" /><i
+                  class="fas fa-user"
+                ></i></label
+              ><label class="contact-label"
+                ><input type="text" placeholder="Email" /><i
+                  class="fas fa-envelope"
+                ></i></label
+              ><label class="contact-label">
+                <textarea placeholder="Lời nhắn"></textarea
+                ><i class="fas fa-pen-nib"></i></label
+              ><button class="btn btn-inline">
+                <i class="fas fa-paper-plane"></i><span >Gửi lời nhắn</span>
+              </button>
+            </form>
+          </div>
+          <div class="col-lg-6">
+            <div class="contact-map">
+				<iframe
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7874604.439353073!2d107.39204796234799!3d15.483264971053327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31157a4d736a1e5f%3A0xb03bb0c9e2fe62be!2zVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1630928574819!5m2!1svi!2s"
+					width="100%"
+	                height="100%"
+	                frameborder="0"
+	                style="border: 0"
+	                allowfullscreen="100%"
+	                aria-hidden="false"
+	                tabindex="0">
+				</iframe>
+			</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="news-part">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5 col-lg-6">
+            <div class="news-content"><h2>Đăng ký nhận ưu đãi mới nhất</h2></div>
+          </div>
+          <div class="col-md-7 col-lg-6">
+            <form class="search-form news-form">
+              <input type="text" placeholder="Email" /><button
+                class="btn btn-inline"
+              >
+                <i class="fas fa-envelope"></i><span >Đăng ký</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer th:replace="~{/fragments/footer :: footer}"></footer>
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="js/vendor/popper.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/custom/main.js"></script>
+  </body>
+</html>

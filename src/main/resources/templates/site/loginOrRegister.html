@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <!-- Added by HTTrack --><meta
+    http-equiv="content-type"
+    content="text/html;charset=utf-8"
+  /><!-- /Added by HTTrack -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="author" content="mironcoder" />
+    <meta name="email" content="mironcoder@gmail.com" />
+    <meta name="profile" content="https://themeforest.net/user/mironcoder" />
+    <meta name="name" content="Puppy Pets" />
+    <meta name="title" content="Puppy Pets" />
+    <meta name="keywords" content="Puppy Pets" />
+    <title>Puppy Pets - Đăng nhập | Đăng ký</title>
+    <link rel="icon" href="images/favicon.png" />
+    <link rel="stylesheet" href="fonts/flaticon/flaticon.css" />
+    <link rel="stylesheet" href="font-awesome/5.14.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/custom/main.css" />
+    <link rel="stylesheet" href="css/custom/signin-up.css" />
+  </head>
+  <body>
+    <section class="sign-part">
+      <div class="sign-content">
+        <div class="content-cover">
+          <a th:href="@{/}"><img src="images/logo.png" alt="logo" /></a>
+          <h1>
+            Khám phá Thế Giới Yêu Thú Cưng Của Chúng Tôi. Mua Sắm Đồ Chơi & Phụ
+            Kiện Cho Bạn Đồng Hành Của Bạn!
+          </h1>
+        </div>
+      </div>
+      <div class="sign-form">
+        <div class="back-arrow">
+          <a href="#"><img src="images/logo.png" alt="logo" /></a
+          ><a th:href="@{/}"><i class="fas fa-arrow-left"></i></a>
+        </div>
+        <div class="sign-cate">
+          <ul class="nav nav-tabs">
+            <li>
+              <a href="#signin" class="nav-link active" data-toggle="tab"
+                >Đăng nhập</a
+              >
+            </li>
+            <li>
+              <a href="#signup" class="nav-link" data-toggle="tab">Đăng ký</a>
+            </li>
+          </ul>
+        </div>
+        <div class="tab-pane active" id="signin">
+          <div class="sign-heading">
+            <h2>Đăng nhập</h2>
+          </div>
+          <div
+            class="alert alert-danger row col-12 ml-1"
+            th:if="${error}"
+            th:text="${error}"
+          ></div>
+          <div
+            class="alert alert-success row col-12 ml-1"
+            th:if="${message}"
+            th:text="${message}"
+          ></div>
+          <form th:action="@{/doLogin}" method="post" class="form">
+            <!-- Username -->
+            <label class="form-label">
+              <input
+                type="text"
+                name="customerId"
+                value=""
+                placeholder="Tên tài khoản"
+                required="required"
+              />
+            </label>
+            <label class="form-label">
+              <input
+                type="password"
+                id="myPass"
+                name="password"
+                value=""
+                placeholder="Mật khẩu"
+                minlength="6" required title="Mật khẩu phải nhiều hơn 5 ký tự"
+              />
+              <button type="button">
+                <a for="hide" onclick="hidePass()">
+                  <i class="eye fas fa-eye"></i>
+                </a>
+              </button>
+              <small>Mật khẩu phải nhiều hơn 5 ký tự</small>
+            </label>
+            <label class="form-link">
+              <div class="custom-control custom-checkbox">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  id="signin-check"
+                />
+                <label class="custom-control-label" for="signin-check">
+                  Nhớ mật khẩu
+                </label>
+              </div>
+              <a href="#">Quên mật khẩu?</a>
+            </label>
+            <label class="form-btn">
+              <button type="submit" value="login" class="btn btn-outline">
+                Đăng nhập
+              </button>
+            </label>
+          </form>
+          <div class="form-bottom">
+            <p>Bạn chưa tài khoản?Hãy ấn nút <span>Đăng ký</span> ở trên.</p>
+          </div>
+        </div>
+        <div class="tab-pane" id="signup">
+          <div class="sign-heading">
+            <h2>Đăng ký</h2>
+          </div>
+          <ul class="form-option">
+            <li>
+              <a> <i class="fab fa-facebook-f"></i><span>facebook</span> </a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-twitter"></i><span>twitter</span></a>
+            </li>
+            <li>
+              <a> <i class="fab fa-google"></i><span>google</span> </a>
+            </li>
+          </ul>
+          <div class="or-text"><p>hoặc</p></div>
+          <div
+            class="alert alert-danger row col-12 ml-1"
+            th:if="${error}"
+            th:text="${error}"
+          ></div>
+          <div
+            class="alert alert-success row col-12 ml-1"
+            th:if="${message}"
+            th:text="${message}"
+          ></div>
+          <form
+            th:action="@{/registered}"
+            th:object="${customer}"
+            method="post"
+            class="form"
+          >
+            <!-- Login Name -->
+            <label class="form-label">
+              <input
+                th:field="*{customerId}"
+                type="text"
+                placeholder="Tên tài khoản"
+                required="required"
+              />
+            </label>
+            <!-- Full Name -->
+            <label class="form-label">
+              <input
+                th:field="*{fullname}"
+                type="text"
+                placeholder="Họ tên"
+                required="required"
+              />
+            </label>
+            <!-- Email -->
+            <label class="form-label">
+              <input
+                th:field="*{email}"
+                type="email"
+                placeholder="Email"
+                required="required"
+              />
+              <small>ví dụ - puppypets@gmail.com</small>
+            </label>
+            <!-- Password -->
+            <label class="form-label">
+              <input
+                th:field="*{password}"
+                type="password"
+                id="myPassRegister"
+                placeholder="Mật khẩu" minlength="6" required title="Mật khẩu phải nhiều hơn 5 ký tự"
+              />
+              <button type="button">
+                <a for="hide" onclick="hidePass()">
+                  <i class="eye fas fa-eye"></i>
+                </a>
+              </button>
+              <small>Mật khẩu phải nhiều hơn 5 ký tự</small>
+            </label>
+            <div class="form-btn">
+              <button type="submit" class="btn btn-outline">Đăng ký</button>
+            </div>
+          </form>
+
+          <!-- show password -->
+          <script>
+            function hidePass() {
+              var x = document.getElementById("myPass");
+              if (x.type === "password") {
+                x.type = "text";
+              } else {
+                x.type = "password";
+              }
+
+              var y = document.getElementById("myPassRegister");
+              if (y.type === "password") {
+                y.type = "text";
+              } else {
+                y.type = "password";
+              }
+            }
+          </script>
+          <div class="form-bottom">
+            <p>
+              Nếu bạn đã có tài khoản? Hãy ấn nút
+              <span>Đăng nhập</span> ở trên.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="js/vendor/popper.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/custom/main.js"></script>
+  </body>
+</html>
