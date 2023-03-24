@@ -121,22 +121,24 @@
                       <th scope="col" >ID đơn hàng</th>
                       <th scope="col" >Địa chỉ</th>
                       <th scope="col" >Ngày</th>
-                      <th scope="col" >Tổng tiền</th>
-                      <th scope="col" >Số lượng</th>
-                      <th scope="col" >Trạng thái</th>
                       <th scope="col" >Tên sản phẩm</th>
+                      <th scope="col" >Đơn giá</th>
+                      <th scope="col" >Số lượng</th>
+                      <th scope="col" >Tổng tiền</th>
+                      <th scope="col" >Trạng thái</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr th:each="item, iState : ${orders2}">
                       <td class="table-order"><p>[[${iState.index + 1}]]</p></td>
                       <td class="table-order"><p>[[${item[0]}]]</p></td>
-                      <td class="table-date"><p>[[${item[1]}]]</p></td>
-                      <td class="table-total"><p>[[${item[2]}]]</p></td>
-                      <td class="table-total"><p>[[ ${#numbers.formatDecimal(item[3], 1, 'DEFAULT', 0, 'DEFAULT')}+ '₫']]</p></td>
-                      <td class="table-total"><p>[[${item[6]}]]</p></td>
-                      <td class="table-total"><p>[[${item[4]}]]</p></td>
+                      <td class="table-total"><p>[[${item[1]}]]</p></td>
+                      <td class="table-date"><p>[[${item[2]}]]</p></td>
+                      <td class="table-total"><p>[[${item[3]}]]</p></td>
+                      <td class="table-total"><p>[[ ${#numbers.formatDecimal(item[4], 1, 'DEFAULT', 0, 'DEFAULT')}+ '₫']]
                       <td class="table-total"><p>[[${item[5]}]]</p></td>
+                      <td class="table-total"><p>[[ ${#numbers.formatDecimal(item[6], 1, 'DEFAULT', 0, 'DEFAULT')}+ '₫']]</p></td>
+                      <td class="table-total"><p>[[${item[7]}]]</p></td>
                     </tr>
                   </tbody>
                 </table>
