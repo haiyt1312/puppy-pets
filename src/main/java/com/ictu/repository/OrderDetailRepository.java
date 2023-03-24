@@ -3,6 +3,7 @@ package com.ictu.repository;
 import java.util.Date;
 import java.util.List;
 
+import com.ictu.entity.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -99,4 +100,7 @@ public interface OrderDetailRepository extends JpaRepository<OrderDetail, Intege
 			+ "select quantity_1, quantity_2, quantity_3, quantity_4\r\n"
 			+ "from tb1, tb2, tb3, tb4", nativeQuery = true)
 	public List<Object[]> repoCategory();
+
+	@Query(value = "select sum(total_price) from order_details where order_id = ?1", nativeQuery = true)
+	Double sumTotalPrice(Integer orderId);
 }

@@ -48,8 +48,7 @@
 }
 
 .page-item .active {
-    color: var(--whitecolor);
-    background: var(--color)
+  color: var(--color);
 }
 
 .page-link {

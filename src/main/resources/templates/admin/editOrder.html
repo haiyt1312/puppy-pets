@@ -70,9 +70,9 @@
 									<h4 class="card-title" style="text-decoration: underline;">Chỉnh sửa đơn hàng</h4>
 								</div>
 							</div>
-							<div class="alert alert-success row col-12"
-									th:if="${message}" th:text="${message}">
-								</div>
+							<div class="alert alert-success"
+								th:if="${message}" th:text="${message}">
+							</div>
 							<div class="card-header">
 								<section class="row">
 						           <div class="col-9 offset-1">
@@ -81,7 +81,7 @@
 											<div class="col-md-6 pr-0">
 												<div class="form-group form-group-default">
 													<label>ID Đơn hàng</label>
-													<input th:field="*{order.orderId}" id="name" type="text" class="form-control" placeholder="" readonly="readonly">
+													<input th:field="*{order.orderId}" id="orderId" type="text" class="form-control" placeholder="" readonly="readonly">
 												</div>
 											</div>
 											<div class="col-md-6 pr-0">
@@ -93,25 +93,31 @@
 											<div class="col-md-6 pr-0">
 												<div class="form-group form-group-default">
 													<label>ID Sản phẩm</label>
-													<input th:field="*{product.productId}" id="name" type="text" class="form-control" placeholder="" readonly="readonly">
+													<input th:field="*{product.productId}" id="productId" type="text" class="form-control" placeholder="" readonly="readonly">
+												</div>
+											</div>
+											<div class="col-md-6 pr-0">
+												<div class="form-group form-group-default">
+													<label>Người nhận</label>
+													<input th:field="*{order.receiver}" id="receiver" type="text" class="form-control" placeholder="người nhận">
 												</div>
 											</div>
 											<div class="col-md-6 pr-0">
 												<div class="form-group form-group-default">
 													<label>Số lượng</label>
-													<input th:field="*{quantity}" id="quantity" min = 0 type="number" class="form-control" placeholder="" readonly="readonly">
+													<input th:field="*{quantity}" id="quantity" min = 0 type="number" class="form-control" placeholder="">
 												</div>
 											</div>
 											<div class="col-md-6 pr-0">
 												<div class="form-group form-group-default">
 													<label>Đơn giá</label>
-													<input th:field="*{price}" id="quantity" min = 0 type="number" class="form-control" placeholder="" readonly="readonly">
+													<input th:field="*{price}" id="price" min = 0 type="number" class="form-control" placeholder="" readonly="readonly">
 												</div>
 											</div>
 											<div class="col-md-6 pr-0">
 												<div class="form-group form-group-default">
-													<label>Tổng tiền</label>
-													<input th:field="*{totalPrice}" id="totalPrice" type="number" class="form-control" placeholder="tổng tiền" readonly="readonly">
+													<label>Địa chỉ</label>
+													<input th:field="*{order.address}" id="address" type="text" class="form-control" placeholder="địa chỉ">
 												</div>
 											</div>
 											<div class="col-md-6 pr-0">
