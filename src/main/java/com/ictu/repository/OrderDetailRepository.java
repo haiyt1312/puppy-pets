@@ -1,5 +1,6 @@
 package com.ictu.repository;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -75,21 +76,21 @@ public interface OrderDetailRepository extends JpaRepository<OrderDetail, Intege
 			+ "GROUP BY c.customer_id;", nativeQuery = true)
 	public List<Object[]> reportCustommer();
 
-	@Query(value = "with tb1 as(select SUM(o.quantity * o.total_price) as month_1 FROM order_details o INNER JOIN orders od ON o.order_id =od.order_id where o.status = 'Đã Thanh Toán' and month(od.order_date) = 1),\n" +
-			"tb2 as(select SUM(o.quantity * o.total_price) as month_2 FROM order_details o INNER JOIN orders od ON o.order_id =od.order_id where o.status = 'Đã Thanh Toán' and month(od.order_date) = 2),\n" +
-			"tb3 as(select SUM(o.quantity * o.total_price) as month_3 FROM order_details o INNER JOIN orders od ON o.order_id =od.order_id where o.status = 'Đã Thanh Toán' and month(od.order_date) = 3),\n" +
-			"tb4 as(select SUM(o.quantity * o.total_price) as month_4 FROM order_details o INNER JOIN orders od ON o.order_id =od.order_id where o.status = 'Đã Thanh Toán' and month(od.order_date) = 4),\n" +
-			"tb5 as(select SUM(o.quantity * o.total_price) as month_5 FROM order_details o INNER JOIN orders od ON o.order_id =od.order_id where o.status = 'Đã Thanh Toán' and month(od.order_date) = 5),\n" +
-			"tb6 as(select SUM(o.quantity * o.total_price) as month_6 FROM order_details o INNER JOIN orders od ON o.order_id =od.order_id where o.status = 'Đã Thanh Toán' and month(od.order_date) = 6),\n" +
-			"tb7 as(select SUM(o.quantity * o.total_price) as month_7 FROM order_details o INNER JOIN orders od ON o.order_id =od.order_id where o.status = 'Đã Thanh Toán' and month(od.order_date) = 7),\n" +
-			"tb8 as(select SUM(o.quantity * o.total_price) as month_8 FROM order_details o INNER JOIN orders od ON o.order_id =od.order_id where o.status = 'Đã Thanh Toán' and month(od.order_date) = 8),\n" +
-			"tb9 as(select SUM(o.quantity * o.total_price) as month_9 FROM order_details o INNER JOIN orders od ON o.order_id =od.order_id where o.status = 'Đã Thanh Toán' and month(od.order_date) = 9),\n" +
-			"tb10 as(select SUM(o.quantity * o.total_price) as month_10 FROM order_details o INNER JOIN orders od ON o.order_id =od.order_id where o.status = 'Đã Thanh Toán' and month(od.order_date) = 10),\n" +
-			"tb11 as(select SUM(o.quantity * o.total_price) as month_11 FROM order_details o INNER JOIN orders od ON o.order_id =od.order_id where o.status = 'Đã Thanh Toán' and month(od.order_date) = 11),\n" +
-			"tb12 as(select SUM(o.quantity * o.total_price) as month_12 FROM order_details o INNER JOIN orders od ON o.order_id =od.order_id where o.status = 'Đã Thanh Toán' and month(od.order_date) = 12)\n" +
+	@Query(value = "with tb1 as(select SUM(o.quantity * o.total_price) as month_1 FROM order_details o INNER JOIN orders od ON o.order_id =od.order_id where o.status = 'Đã Thanh Toán' and month(od.order_date) = 1 and year(od.order_date) = :year),\n" +
+			"tb2 as(select SUM(o.quantity * o.total_price) as month_2 FROM order_details o INNER JOIN orders od ON o.order_id =od.order_id where o.status = 'Đã Thanh Toán' and month(od.order_date) = 2 and year(od.order_date) = :year),\n" +
+			"tb3 as(select SUM(o.quantity * o.total_price) as month_3 FROM order_details o INNER JOIN orders od ON o.order_id =od.order_id where o.status = 'Đã Thanh Toán' and month(od.order_date) = 3 and year(od.order_date) = :year),\n" +
+			"tb4 as(select SUM(o.quantity * o.total_price) as month_4 FROM order_details o INNER JOIN orders od ON o.order_id =od.order_id where o.status = 'Đã Thanh Toán' and month(od.order_date) = 4 and year(od.order_date) = :year),\n" +
+			"tb5 as(select SUM(o.quantity * o.total_price) as month_5 FROM order_details o INNER JOIN orders od ON o.order_id =od.order_id where o.status = 'Đã Thanh Toán' and month(od.order_date) = 5 and year(od.order_date) = :year),\n" +
+			"tb6 as(select SUM(o.quantity * o.total_price) as month_6 FROM order_details o INNER JOIN orders od ON o.order_id =od.order_id where o.status = 'Đã Thanh Toán' and month(od.order_date) = 6 and year(od.order_date) = :year),\n" +
+			"tb7 as(select SUM(o.quantity * o.total_price) as month_7 FROM order_details o INNER JOIN orders od ON o.order_id =od.order_id where o.status = 'Đã Thanh Toán' and month(od.order_date) = 7 and year(od.order_date) = :year),\n" +
+			"tb8 as(select SUM(o.quantity * o.total_price) as month_8 FROM order_details o INNER JOIN orders od ON o.order_id =od.order_id where o.status = 'Đã Thanh Toán' and month(od.order_date) = 8 and year(od.order_date) = :year),\n" +
+			"tb9 as(select SUM(o.quantity * o.total_price) as month_9 FROM order_details o INNER JOIN orders od ON o.order_id =od.order_id where o.status = 'Đã Thanh Toán' and month(od.order_date) = 9 and year(od.order_date) = :year),\n" +
+			"tb10 as(select SUM(o.quantity * o.total_price) as month_10 FROM order_details o INNER JOIN orders od ON o.order_id =od.order_id where o.status = 'Đã Thanh Toán' and month(od.order_date) = 10 and year(od.order_date) = :year),\n" +
+			"tb11 as(select SUM(o.quantity * o.total_price) as month_11 FROM order_details o INNER JOIN orders od ON o.order_id =od.order_id where o.status = 'Đã Thanh Toán' and month(od.order_date) = 11 and year(od.order_date) = :year),\n" +
+			"tb12 as(select SUM(o.quantity * o.total_price) as month_12 FROM order_details o INNER JOIN orders od ON o.order_id =od.order_id where o.status = 'Đã Thanh Toán' and month(od.order_date) = 12 and year(od.order_date) = :year)\n" +
 			"select month_1, month_2, month_3, month_4, month_5, month_6, month_7, month_8, month_9, month_10, month_11, month_12\n" +
 			"from tb1, tb2, tb3, tb4, tb5, tb6, tb7, tb8, tb9, tb10, tb11, tb12;", nativeQuery = true)
-	public List<Object[]> repoMonth();
+	public List<Object[]> repoMonth(Date year);
 	
 	@Query(value = "with tb1 as (select count(o.quantity) as quantity_1 from order_details o left join products p on o.product_id = p.product_id left join categories c on c.category_id = p.category_id where c.category_id = 1),\r\n"
 			+ "tb2 as (select count(o.quantity) as quantity_2 from order_details o left join products p on o.product_id = p.product_id left join categories c on c.category_id = p.category_id where c.category_id = 2),\r\n"

@@ -73,7 +73,6 @@ public class ProductController extends CommonController {
 			@RequestParam("file") MultipartFile file, HttpServletRequest httpServletRequest) {
 
 		try {
-
 			File convFile = new File(pathUploadImage + "/" + file.getOriginalFilename());
 			FileOutputStream fos = new FileOutputStream(convFile);
 			fos.write(file.getBytes());
@@ -88,7 +87,7 @@ public class ProductController extends CommonController {
 			model.addAttribute("message", "Update success");
 			model.addAttribute("product", product);
 		} else {
-			model.addAttribute("message", "Update failure");
+			model.addAttribute("message", "Update fail");
 			model.addAttribute("product", product);
 		}
 		return "redirect:/admin/products";

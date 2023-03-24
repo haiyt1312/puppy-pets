@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import com.ictu.repository.OrderDetailRepository;
@@ -33,7 +34,8 @@ public class IndexAdminController {
 		List<Object[]> dashboard = customersRepository.getDashboard();
 		model.addAttribute("dashboard", dashboard);
 
-		List<Object[]> repoMonth = orderDetailRepository.repoMonth();
+		Date year = new Date();
+		List<Object[]> repoMonth = orderDetailRepository.repoMonth(year);
 		List<Double> data = new ArrayList<Double>();
 		for (Object[] objectArray : repoMonth) {
 			for (Object object : objectArray) {

@@ -76,7 +76,7 @@
 							<div class="card-header">
 								<section class="row">
 						           <div class="col-9 offset-1">
-						             <form th:action="@{/editorder}" th:object="${orderDetail}" method="post">
+						             <form th:action="@{/editOrder}" th:object="${orderDetail}" method="post">
 										<div class="row">
 											<div class="col-md-6 pr-0">
 												<div class="form-group form-group-default">
@@ -117,8 +117,9 @@
 											<div class="col-md-6 pr-0">
 				                          	<label style="background-color: #FF9966;">Trạng thái đơn hàng</label>
 				                          		<select th:field="*{status}" class="form-control">
+													<option th:value="'Đã Xác Nhận'">Đã Xác Nhận</option>
+													<option th:value="'Đang Vận Chuyển'">Đang Vận Chuyển</option>
 												    <option th:value="'Đã Thanh Toán'" >Đã Thanh Toán</option>
-												    <option th:value="'Đang Vận Chuyển'">Đang Vận Chuyển</option>
 												</select>
 						                   </div>
 										</div>

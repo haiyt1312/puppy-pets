@@ -18,4 +18,5 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
 			+ "from orders o " + "left join order_details od on o.order_id = od.order_id "
 			+ "left join products p on od.product_id = p.product_id " + "where o.customer_id = ?", nativeQuery = true)
 	public List<Object[]> orderByCustomerId(String id);
+
 }

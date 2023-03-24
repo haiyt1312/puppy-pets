@@ -103,7 +103,8 @@
 							<div class="card">
 								<div class="card-header">
 									<div class="card-head-row">
-										<div class="card-title">Thống kê doanh thu hàng tháng</div>
+										<div class="card-title">Thống kê doanh thu hàng tháng trong năm: </div>
+										<span id="currentYear" class="card-title" style="margin-left: 5px"></span>
 									</div>
 								</div>
 								<div class="card-body">
@@ -242,6 +243,10 @@
 				}
 			}
 		});
+	</script>
+	<script>
+		var year = new Date().getFullYear();
+		document.getElementById("currentYear").innerHTML = year;
 	</script>
 </body>
 </html>

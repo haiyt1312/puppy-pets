@@ -45,10 +45,9 @@ public class OrderController extends CommonController {
 	}
 
 	// get edit
-	@GetMapping("/editorder/{orderDetailId}")
+	@GetMapping("/editOrder/{orderDetailId}")
 	public String showEditOrder(@PathVariable("orderDetailId") int orderDetailId, Model model) {
-		OrderDetail orderDetail = orderDetailRepository.findById(orderDetailId)
-				.orElseThrow(() -> new IllegalArgumentException("Id người dùng không hợp lệ:" + orderDetailId));
+		OrderDetail orderDetail = orderDetailRepository.findById(orderDetailId).orElse(null);
 
 		model.addAttribute("orderDetail", orderDetail);
 
@@ -56,8 +55,8 @@ public class OrderController extends CommonController {
 	}
 
 	// edit order
-	@RequestMapping(value = "/editorder", method = RequestMethod.POST)
-	public String editordertr(@ModelAttribute("orderDetail") OrderDetail orderDetail, Model model,
+	@RequestMapping(value = "/editOrder", method = RequestMethod.POST)
+	public String editOrder(@ModelAttribute("orderDetail") OrderDetail orderDetail, Model model,
 			RedirectAttributes rs) {
 		OrderDetail orderDetail2 = orderDetailRepository.save(orderDetail);
 		if (null != orderDetail2) {
@@ -71,12 +70,11 @@ public class OrderController extends CommonController {
 		return "redirect:/admin/orders";
 	}
 
-	// delete category
+	// delete order
 	@GetMapping("/deleteOrder/{id}")
-	public String delProduct(@PathVariable("id") Integer id, Model model) {
+	public String deleteProduct(@PathVariable("id") Integer id, Model model) {
 		orderDetailRepository.deleteById(id);
 		model.addAttribute("message", "Delete successful!");
-
 		return "redirect:/admin/orders";
 	}
 
